@@ -14,9 +14,6 @@ class _ListItemViewState extends State<ListItemView> {
   void initState() {
     super.initState();
     itemList = ListClass.instance.items;
-
-    print(" print itemList ${itemList}");
-    print(" print itemListlength ${itemList.length}");
   }
 
   @override
@@ -34,6 +31,18 @@ class _ListItemViewState extends State<ListItemView> {
                 elevation: 5,
                 child: ListTile(
                   title: Text(itemList[index]['name']),
+                  trailing: IconButton(
+                    icon: const Icon(
+                      Icons.delete,
+                      color: Colors.red,
+                    ),
+                    onPressed: () {
+                      itemList.removeAt(index);
+                      setState(() {
+                        
+                      });
+                    },
+                  ),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

@@ -1,5 +1,8 @@
-class ListClass{
-  List<Map> _itemList=[];
+class ListClass {
+  ListClass._();
+  static final ListClass instance = ListClass._();
+
+  final List<Map> _itemList = [];
 
   void addItem(String name, int quantity, int rate) {
     _itemList.add({
@@ -9,8 +12,5 @@ class ListClass{
     });
   }
 
-  List<Map> getItem() {
-    return _itemList;
-  }
-
+  List<Map> get items => _itemList;
 }

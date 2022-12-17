@@ -9,18 +9,19 @@ class ListItemView extends StatefulWidget {
 }
 
 class _ListItemViewState extends State<ListItemView> {
-  var itemList;
+  late List<Map> itemList;
   @override
   void initState() {
     super.initState();
-    var itemList = ListClass().getItem;
+    itemList = ListClass.instance.items;
 
-    print(" itemList ${itemList}");
+    print(" print itemList ${itemList}");
+    print(" print itemListlength ${itemList.length}");
   }
 
   @override
   Widget build(BuildContext context) {
-    return itemList == null
+    return itemList.isEmpty
         ? const Center(
             child: Text(
               "Item list is empty",
@@ -29,13 +30,17 @@ class _ListItemViewState extends State<ListItemView> {
         : ListView.builder(
             itemCount: itemList.length,
             itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text(itemList[index]['name']),
-                subtitle: Column(
-                  children: [
-                    Text("Rate: ${itemList[index]['rate']}"),
-                    Text("Quantity ${itemList[index]['quantity']}"),
-                  ],
+              return Card(
+                elevation: 5,
+                child: ListTile(
+                  title: Text(itemList[index]['name']),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Rate: ${itemList[index]['rate']}"),
+                      Text("Quantity ${itemList[index]['quantity']}"),
+                    ],
+                  ),
                 ),
               );
             },

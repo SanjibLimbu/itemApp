@@ -48,8 +48,8 @@ class _ItemFormState extends State<ItemForm> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    var itemList = ListClass();
-                    
+                    var itemList = ListClass.instance;
+
                     itemList.addItem(
                       itemController.text,
                       int.parse(quantityController.text),
@@ -58,7 +58,6 @@ class _ItemFormState extends State<ItemForm> {
                     itemController.clear();
                     quantityController.clear();
                     rateController.clear();
-                    print("Length ${itemList.getItem().length}");
 
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Item Added')),

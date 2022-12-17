@@ -20,7 +20,7 @@ class _ListItemViewState extends State<ListItemView> {
 
   @override
   Widget build(BuildContext context) {
-    return itemList.isEmpty
+    return itemList.isEmpty || itemList == null
         ? const Center(
             child: Text(
               "Item list is empty",

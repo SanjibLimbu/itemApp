@@ -46,8 +46,8 @@ class _ListItemViewState extends State<ListItemView> {
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Rate: ${itemList[index]['rate']}"),
-                      Text("Quantity ${itemList[index]['quantity']}"),
+                      Text("Rate: Rs.${itemList[index]['rate']}"),
+                      Text("Quantity: ${itemList[index]['quantity']}"),
                     ],
                   ),
                 ),
